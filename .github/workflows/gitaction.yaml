@@ -19,6 +19,7 @@ jobs:
       - name: Fetch latest changes from main to Prod Branch
         run: |
           git checkout prod
+          git merge --allow-unrelated-histories origin/main
           git merge origin/main
           git add .
           git commit -m "added new line"
