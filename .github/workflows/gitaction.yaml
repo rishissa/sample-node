@@ -19,6 +19,8 @@ jobs:
       - name: Fetch latest changes from main to Prod Branch
         run: |
           git checkout prod
+          git config --global user.email "rishi.socialseller@gmail.com"
+          git config --global user.name "rishissa"
           git merge --allow-unrelated-histories origin/main
           git merge origin/main
           git add .
