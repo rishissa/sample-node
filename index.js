@@ -6,6 +6,6 @@ function hello(params) {
   console.log("Hello World");
 }
 
-function secondHello(params) {
+function secondHello(values) {
   console.log("Welcome to github actions");
 }
