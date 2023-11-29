@@ -5,3 +5,7 @@ console.log("This is Global Code");
 function hello(params) {
   console.log("Hello World");
 }
+
+function secondHello(params) {
+  console.log("Welcome to github actions");
+}

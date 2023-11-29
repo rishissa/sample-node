@@ -1,28 +1,30 @@
-# name: Auto Deploy to Test and Prod
+name: Auto Deploy to Test and Prod
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-#       - name: Push to Test Branch
-#         run: |
-#           git checkout test
-#           git add .
-#           git commit -m "added new line"
-#           git push origin test
+      - name: Fetch latest changes from main to Test Branch
+        run: |
+          git checkout test
+          git merge origin/main
+          git add .
+          git commit -m "added new line"
+          git push origin test
 
-#       - name: Push to Prod Branch
-#         run: |
-#           git checkout prod
-#           git add .
-#           git commit -m "added new line"
-#           git push origin prod
+      - name: Fetch latest changes from main to Prod Branch
+        run: |
+          git checkout prod
+          git merge origin/main
+          git add .
+          git commit -m "added new line"
+          git push origin prod
